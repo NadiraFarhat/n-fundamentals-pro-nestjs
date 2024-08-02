@@ -1,0 +1,9 @@
+GET http://localhost:3001/songs/1
+###
+POST http://localhost:3001/songs
+Content-Type: application/json
+
+{
+    "releasedDate": "2022-09-29",
+    "duration": "02:35"
+}
