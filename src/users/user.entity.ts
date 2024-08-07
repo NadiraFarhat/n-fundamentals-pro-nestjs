@@ -1,29 +1,26 @@
-import { Playlist } from "src/playlist/playlist.entity";
-import {
-    Column,
-    Entity,
-    OneToMany,
-    PrimaryGeneratedColumn
-    } from "typeorm";
+import { Exclude } from 'class-transformer';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-    @Entity("users")
-    export class User {
-    @PrimaryGeneratedColumn()
-    id: number;
+@Entity('users')
+export class User {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    firstName: string;
+  @Column()
+  firstName: string;
 
-    @Column()
-    lastName: string;
+  @Column()
+  lastName: string;
 
-    @Column()
-    email: string;
+  @Column({ unique: true })
+  email: string;
 
-    @Column()
-    password: string;
+  @Column()
+  @Exclude()
+  password: string;
+    playLists: any;
 
-    @OneToMany(() => Playlist, (playList) => playList.user)
-    playLists: Playlist[];
-    }
-    
+  /**
+   * A user can create many playLists
+   */
+}

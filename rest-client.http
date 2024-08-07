@@ -29,6 +29,18 @@ Content-Type: application/json
     "user": 1
 }
 
+### Signup User
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+"firstName": "john",
+"lastName": "doe",
+"email": "john@gmail.com",
+"password": "123456"
+}
+
+
 ### Update SONGS REQUEST
 PUT http://localhost:3000/songs/2
 Content-Type: application/json
